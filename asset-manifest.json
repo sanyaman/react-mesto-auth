@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/mesto-react/static/css/main.57222905.css",
+    "main.js": "/mesto-react/static/js/main.1143a562.js",
+    "static/js/787.eb814b21.chunk.js": "/mesto-react/static/js/787.eb814b21.chunk.js",
+    "static/media/Inter-Medium.woff": "/mesto-react/static/media/Inter-Medium.eec0ea57721daa33c7a2.woff",
+    "static/media/Inter-Black.woff": "/mesto-react/static/media/Inter-Black.7bb6234314ccc72c942a.woff",
+    "static/media/Inter-Regular.woff": "/mesto-react/static/media/Inter-Regular.e148c4a1158f8cee8285.woff",
+    "static/media/Inter-Medium.woff2": "/mesto-react/static/media/Inter-Medium.d0a58d956cf2f4cf078f.woff2",
+    "static/media/Inter-Black.woff2": "/mesto-react/static/media/Inter-Black.768169b1912340d378ac.woff2",
+    "static/media/Inter-Regular.woff2": "/mesto-react/static/media/Inter-Regular.26a30a5f1103393aac70.woff2",
+    "static/media/Vector.svg": "/mesto-react/static/media/Vector.e1792cd1bf55c68d1538deb5b248d425.svg",
+    "static/media/heart.svg": "/mesto-react/static/media/heart.7913ddfd147a48616b09.svg",
+    "index.html": "/mesto-react/index.html",
+    "static/media/icon-trash.svg": "/mesto-react/static/media/icon-trash.cbc09a894bdd4c956365.svg",
+    "static/media/heart-active.svg": "/mesto-react/static/media/heart-active.fe17a515669479b1e649.svg",
+    "static/media/pencil.svg": "/mesto-react/static/media/pencil.8667ac4a523e8fc42e59.svg",
+    "static/media/icon-avatar.svg": "/mesto-react/static/media/icon-avatar.a086f758840ae814ecde.svg",
+    "static/media/Close-Icon.svg": "/mesto-react/static/media/Close-Icon.2ceb783afbab75916ddc.svg",
+    "static/media/pluse.svg": "/mesto-react/static/media/pluse.d86bb2edc2f6eadb96b7.svg",
+    "main.57222905.css.map": "/mesto-react/static/css/main.57222905.css.map",
+    "main.1143a562.js.map": "/mesto-react/static/js/main.1143a562.js.map",
+    "787.eb814b21.chunk.js.map": "/mesto-react/static/js/787.eb814b21.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.57222905.css",
+    "static/js/main.1143a562.js"
+  ]
+}
