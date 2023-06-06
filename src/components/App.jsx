@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import "../index.css";
+//import "../index.css";
 import { api } from "../utils/Api";
 import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
 import * as auth from "../utils/auth";
@@ -18,6 +18,7 @@ import Login from "./Login";
 import InfoToolTip from "./InfoTooltip";
 
 function App() {
+  const navigate = useNavigate();
   const [cards, setCards] = useState([]);
   const [isConfirmeDelete, setIsConfirmeDelete] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -30,7 +31,6 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [email, setEmail] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
-  const navigate = useNavigate();
   const [isCurrentUser, setIsCurrentUser] = useState({
     name: "Жак",
     about: "Доширак",
@@ -43,7 +43,7 @@ function App() {
         setCards(cardList);
       })
       .catch((err) => console.log("Ошибка:", err));
-  }, []);
+  }, [isLoggedIn]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");

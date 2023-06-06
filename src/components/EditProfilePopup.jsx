@@ -34,6 +34,9 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, isLoading }) {
       isOpen={isOpen ? "popup_opened" : ""}
       onClose={onClose}
       onSubmit={handleSubmit}
+      isLoading={isLoading}
+      submitcaption="Сохранить"
+      isLoadingCaption="Сохранение..."
     >
       <figcaption>
         <fieldset className="popup__field popup__field-edit">
@@ -64,13 +67,6 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, isLoading }) {
           />
           <span className="popup__fill-error" id="input-useractivity-error" />
         </fieldset>
-        <button
-          name="saveBtn"
-          type="submit"
-          className="popup__sumbit popup__sumbit-edit"
-        >
-          {isLoading && isOpen ? "Сохранение..." : "Сохранить"}
-        </button>
       </figcaption>
     </PopupWithForm>
   );

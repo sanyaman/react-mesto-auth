@@ -13,18 +13,12 @@ function DeleteCardPopup({ isOpen, onClose, onDeleteCard, isLoading }) {
       isOpen={isOpen ? "popup_opened" : ""}
       onClose={onClose}
       onSubmit={handleSubmit}
-    >
-      <>
-        <button
-          name="saveBtn"
-          type="submit"
-          className="popup__sumbit popup__sumbit-confirmation"
-        >
-          {isLoading && isOpen ? "Запуск Адронного Коллайдера..." : "Да"}
-        </button>
-      </>
-    </PopupWithForm>
+      isLoading={isLoading}
+      isLoadingCaption="Запуск Адронного Коллайдера..."
+      submitcaption="Да"
+    ></PopupWithForm>
   );
 }
 
 export default DeleteCardPopup;
+

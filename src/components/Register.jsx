@@ -1,22 +1,25 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Register(props) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+function Register({ onRegister }) {
+  const [userData, setUserData] = useState({
+    email: "",
+    password: "",
+  });
 
-  function handleEmail(e) {
-    setEmail(e.target.value);
-  }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserData({
+      ...userData,
+      [name]: value,
+    });
+  };
 
-  function handlePassword(e) {
-    setPassword(e.target.value);
-  }
-
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    props.onRegister(email, password);
-  }
+    const { email, password } = userData;
+    onRegister(email, password);
+  };
 
   return (
     <section className="auth">
@@ -30,8 +33,8 @@ function Register(props) {
           required
           minLength="5"
           maxLength="40"
-          value={email || ""}
-          onChange={handleEmail}
+          onChange={handleChange}
+          value={userData.email}
         ></input>
         <input
           className="auth__form-input"
@@ -42,8 +45,8 @@ function Register(props) {
           type="password"
           autoComplete="on"
           required
-          value={password || ""}
-          onChange={handlePassword}
+          onChange={handleChange}
+          value={userData.password}
         ></input>
         <button
           className="auth__submit-button auth__submit-button_margin"

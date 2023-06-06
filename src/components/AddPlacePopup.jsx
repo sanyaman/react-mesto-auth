@@ -33,6 +33,9 @@ function AddPlacePopup({ isOpen, isLoading, onClose, onAddPlace }) {
       isOpen={isOpen ? "popup_opened" : ""}
       onClose={onClose}
       onSubmit={handleSubmit}
+      isLoading={isLoading}
+      isLoadingCaption="Добавление..."
+      submitcaption="Добавить"
     >
       <figcaption>
         <fieldset className="popup__field popup__field-add">
@@ -61,13 +64,6 @@ function AddPlacePopup({ isOpen, isLoading, onClose, onAddPlace }) {
           />
           <span className="popup__fill-error" id="input-placelink-error" />
         </fieldset>
-        <button
-          name="saveBtn"
-          type="submit"
-          className="popup__sumbit popup__sumbit-add"
-        >
-          {isLoading && isOpen ? "Добавление..." : "Добавить"}
-        </button>
       </figcaption>
     </PopupWithForm>
   );

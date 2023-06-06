@@ -1,7 +1,7 @@
 import PopupWithForm from "./PopupWithForm";
 import { useRef, useEffect } from "react";
 
-function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
+function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar, isLoading }) {
   const linkRef = useRef();
 
   useEffect(() => {
@@ -17,11 +17,14 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
 
   return (
     <PopupWithForm
-      name="profile"
+      name="avatar"
       title="Обновить аватар"
       isOpen={isOpen ? "popup_opened" : ""}
       onClose={onClose}
       onSubmit={handleSubmit}
+      isLoading={isLoading}
+      isLoadingCaption="Загрузка Аватара..."
+      submitcaption="Добавить"
     >
       <figcaption>
         <fieldset className="popup__field popup__field-profile">
@@ -39,13 +42,6 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
             id="input-avatarlink-error"
           ></span>
         </fieldset>
-        <button
-          name="saveBtn"
-          type="submit"
-          className="popup__sumbit popup__sumbit-profile"
-        >
-          Добавить
-        </button>
       </figcaption>
     </PopupWithForm>
   );

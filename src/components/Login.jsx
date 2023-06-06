@@ -1,40 +1,46 @@
 import React, { useState } from "react";
 
-function Login(props) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  function handleEmail(e) {
-    setEmail(e.target.value);
-  }
-  function handlePassword(e) {
-    setPassword(e.target.value);
-  }
-  function handleSubmit(e) {
+function Login({ onLogin }) {
+  const [userData, setUserData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserData({
+      ...userData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    props.onLogin(email, password);
-  }
+    const { email, password } = userData;
+    onLogin(email, password);
+  };
 
   return (
     <section className="auth">
       <h2 className="auth__title">Вход</h2>
       <form className="auth__form" onSubmit={handleSubmit}>
         <input
-          onChange={handleEmail}
+          onChange={handleChange}
           className="auth__form-input"
           placeholder="Email"
           name="email"
           type="email"
           required
-          value={email || ""}
+          value={userData.email}
         ></input>
         <input
-          onChange={handlePassword}
+          onChange={handleChange}
           className="auth__form-input"
           placeholder="Пароль"
           name="password"
           type="password"
           required
-          value={password || ""}
+          value={userData.password}
         ></input>
 
         <button className="auth__submit-button" type="submit">
