@@ -30,19 +30,23 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [email, setEmail] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
-  const [isCurrentUser, setIsCurrentUser] = useState({
+  const [isCurrentUser, setCurrentUser] = useState({
     name: "Жак",
     about: "Доширак",
   });
 
   useEffect(() => {
-    Promise.all([api.getUserData(), api.getInitialCards()])
-      .then(([{ name, about, avatar, _id }, cardList]) => {
-        setIsCurrentUser({ name, about, avatar, _id });
-        setCards(cardList);
-      })
-      .catch((err) => console.log("Ошибка:", err));
+    if (isLoggedIn) {
+      Promise.all([api.getUserData(), api.getInitialCards()])
+        .then(([user, cards]) => {
+          setCurrentUser(user);
+          setCards(cards);
+        })
+        .catch((err) => console.log("Ошибка:", err));
+    }
   }, [isLoggedIn]);
+
+  
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -63,6 +67,8 @@ function App() {
         });
     }
   }, []);
+
+
 
   function handleEditAvatarClick() {
     setIsAvatarPopupOpen(true);
@@ -111,7 +117,7 @@ function App() {
     api
       .setUserData(user)
       .then((newUser) => {
-        setIsCurrentUser(newUser);
+        setCurrentUser(newUser);
         setIsEditProfilePopupOpen(false);
       })
       .catch((err) => console.log("Ошибка:", err))
@@ -123,7 +129,7 @@ function App() {
     api
       .setUserAvatar(link)
       .then((newUser) => {
-        setIsCurrentUser(newUser);
+        setCurrentUser(newUser);
         setIsAvatarPopupOpen(false);
       })
       .catch((err) => console.log("Ошибка:", err))
